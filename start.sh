@@ -1,0 +1,1 @@
+gunicorn "dad_jokes:app"

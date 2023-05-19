@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Flask Flash Message to user  -->
+{% with messages = get_flashed_messages(with_categories = true) %}
+    {% if messages %}
+        {% for cat, msg in messages %}
+            {% if cat == 'auth-success' %}
+                <div class="container">
+                    {{ msg }}
+                    <button type="button" class="close" data-dismiss="alert" onclick="this.parentElement.style.display='none'">&times;</button>    
+        
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+
+
+ <header class="hero-section">
+    <h3 class="header-text">Welcome to Dad Jokes, {{ current_user.email }}</h3>
+    <main class="container dadjoke_form">
+        <div class="row">
+            <aside class="col-12 col-md-6">
+                <h2>Come up with Dad Gold!</h2>
+                {% include 'dadjoke_form.html' %}
+            </aside>
+        </div>
+    </main>
+</header>
+
+<div class="container">
+    <h3>Here are your profile details:</h3>
+    <li class="list-group-item">Email: {{ current_user.email }}</li>
+    <li class="list-group-item">Token: {{ current_user.token }}</li>
+    <div class="row mt-4">
+        {% for dadjokes in dadjokes %}
+        <div class="col-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="<iframe src="https://giphy.com/embed/dSJDldWeIUyrONZrUt" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/laff-tv-lol-that-70s-show-red-forman-dSJDldWeIUyrONZrUt">via GIPHY</a></p>"
+                    alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{ <dadjoke.title> }} ${{ <dadjoke.rating> }}</h5>
+                    <p class="card-text">{{ dadjoke.set_up }}</p>
+                    <p>{{ dadjoke.random_joke }}</p>
+                    <h1>{{ cool_phrase }}</h1>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+
+{% endblock content %}
+

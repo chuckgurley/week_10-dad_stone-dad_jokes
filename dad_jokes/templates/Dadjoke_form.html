@@ -1,0 +1,31 @@
+<form method = "POST">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        <fieldset id="title-field">
+            {{ form.title.label }}            
+            {{ form.title(class = "form-control", placeholder="Title") }}
+        </fieldset>
+        <fieldset id="rating-field">
+            {{ form.rating.label }}            
+            {{ form.rating(class = "form-control", placeholder="Rating") }}
+        </fieldset>
+        <fieldset id="joke_setup-field">
+            {{ form.joke_setup.label }}            
+            {{ form.joke_setup(class = "form-control", placeholder="Joke Setup") }}
+        </fieldset>
+        <fieldset id="punch_line-field">
+            {{ form.punch_line.label }}            
+            {{ form.punch_line(class = "form-control", placeholder="Punch Line") }}
+        </fieldset>
+        <fieldset id="joke_origin-field">
+            {{ form.joke_origin.label }}            
+            {{ form.joke_origin(class = "form-control", placeholder="Joke Origin") }}
+        </fieldset>
+
+
+
+        <!-- Submit Button Area -->
+        {{ form.submit_button(class = "btn btn-primary btn-block mt-2") }}
+
+    </div>   
+</form>

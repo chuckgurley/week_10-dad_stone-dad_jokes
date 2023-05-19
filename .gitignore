@@ -1,0 +1,4 @@
+.env
+dad_jokes_env
+migrations
+__pycache__
